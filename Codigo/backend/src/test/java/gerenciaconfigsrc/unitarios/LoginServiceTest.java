@@ -1,6 +1,5 @@
 package gerenciaconfigsrc.unitarios;
 
-import gerenciaconfigsrc.aceitacao.steps.TestLogin;
 import gerenciaconfigsrc.configs.jwt.JwtTokenUtil;
 import gerenciaconfigsrc.enums.RolesEnum;
 import gerenciaconfigsrc.enums.SexEnum;
@@ -8,7 +7,6 @@ import gerenciaconfigsrc.models.*;
 import gerenciaconfigsrc.models.RequestEntity.LoginRequest;
 import gerenciaconfigsrc.models.ResponseEntity.LoginResponse;
 import gerenciaconfigsrc.repository.UserRepository;
-import gerenciaconfigsrc.service.AuthService;
 import gerenciaconfigsrc.service.UserRoleService;
 import gerenciaconfigsrc.service.UserService;
 import gerenciaconfigsrc.service.impl.AuthServiceImpl;
@@ -21,16 +19,10 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
 import java.util.*;
-
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.doNothing;
+
 
 
 @SpringBootTest(
