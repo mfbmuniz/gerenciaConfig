@@ -71,10 +71,18 @@ public class ClinicaJavaApplication {
 				new Date(),
 				"33853056",
 				"33853056",
-				"123456789",
+				"12345678951",
 				address,
 				SexEnum.MALE,
-				Collections.singletonList(admRole)
+				Collections.singletonList(admRole),
+				32,
+					1.70,
+				104.0,
+				"adm",
+				25.0,
+				null,
+				new Date(),
+				null
 			);
 		} else if(admin.getRoles().stream().noneMatch(role -> role.equals(admRole))) {
 			System.out.println("Adding role to existing Admin account...");

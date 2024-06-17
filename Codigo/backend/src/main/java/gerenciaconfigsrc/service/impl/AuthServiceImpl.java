@@ -64,7 +64,7 @@ public class AuthServiceImpl implements AuthService {
 
 
 
-    private ResponseEntity<String> authenticate(String username, String password) throws Exception {
+    public ResponseEntity<String> authenticate(String username, String password) throws Exception {
         try {
             Optional<User> user = this.userService.findByEmail(username);
             if (user.isPresent()) {

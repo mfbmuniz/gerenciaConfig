@@ -59,10 +59,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				// dont authenticate this particular request
 				.authorizeRequests().antMatchers(
 						"/auth/**",
-						"/family/createFamily",
-						"/riskArea/commonCreate",
-						"/user/commonCreate",
-						"/user/resetPassword").permitAll()
+						"/pacientes/commonCreate",
+						"/pacientes/resetPassword").permitAll()
 				.antMatchers("/v2/api-docs", "/swagger-resources/**",
 				"/swagger-ui/*", "/v3/**", "/webjars/springfox-swagger-ui/**").permitAll()
 				.antMatchers(HttpMethod.OPTIONS).permitAll()
