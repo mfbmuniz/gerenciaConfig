@@ -238,7 +238,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public String getIMC(Long userId) {
         User user = this.userRepository.findOneByIdUser(userId);
-        return Double.toString(calcularIMC(user.getHeigth(),user.getLength()));
+        return Double.toString(calcularIMC(user.getWeight(),user.getLength()));
 
     }
 
@@ -247,9 +247,9 @@ public class UserServiceImpl implements UserService {
         User user = this.userRepository.findOneByIdUser(userId);
         Double resp;
         if(user.getSex().equals("M")){
-            resp= ( (62.1*user.getHeigth())-44.7 );
+            resp= ( (72.7*user.getLength())-58 );
         }else{
-            resp= ( (72.7*user.getHeigth())-58 );
+            resp= ( (62.1*user.getLength())- 44.7);
         }
 
         return Double.toString(resp);
@@ -260,7 +260,7 @@ public class UserServiceImpl implements UserService {
         User user = this.userRepository.findOneByIdUser(userId);
         String resp="";
         for (int i = 0; i < user.getLegalDocument().length(); i++) {
-            if(i<2 || i>5){
+            if(i<3 || i>5){
                 resp+='*';
             }else{
                 resp+=user.getLegalDocument().charAt(i);
@@ -274,7 +274,7 @@ public class UserServiceImpl implements UserService {
         String resp="";
         User user = this.userRepository.findOneByIdUser(userId);
 
-        Double calculoIMC = calcularIMC(user.getHeigth(),user.getLength());
+        Double calculoIMC = calcularIMC(user.getWeight(),user.getLength());
 
         if(calculoIMC< 17){
             resp= "Muito abaixo do peso";
@@ -307,9 +307,9 @@ public class UserServiceImpl implements UserService {
         return calcularIdade(user.getBirthDate()).toString();
     }
 
-    private Double calcularIMC(Double peso, Integer altura){
+    public Double calcularIMC(Double peso, Double altura){
 
-        return ( peso / (Math.pow(altura.intValue(),2))  ) ;
+        return ( peso / (Math.pow(altura,2))  ) ;
 
     }
 
@@ -342,10 +342,13 @@ public class UserServiceImpl implements UserService {
         v2+= (v1*9);
         v2= (v2%11)%10;
 
-        if ( (v1>=0 && v1<=9) && (v2>=0 && v2<=9) ){
-            resp=true;
+
+        if (v1 != cpfSplited[9]) {
+            resp= false;
+        }else if( v2 != cpfSplited[10]){
+            resp=false;
         }else{
-            resp = false;
+            resp = true;
         }
         return resp;
     }

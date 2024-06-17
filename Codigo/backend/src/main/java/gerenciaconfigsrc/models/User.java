@@ -22,17 +22,13 @@ public class User {
     @Column(name = "user_id")
     private Long idUser;
 
-    @NotNull(message = "Campo name não pode ser nulo")
-    @NotEmpty(message = "Campo name não pode ser vazio")
+    @Column(name = "name")
     private String name;
 
-    @NotNull(message = "Campo name não pode ser nulo")
-    @NotEmpty(message = "Campo name não pode ser vazio")
     @Column(name = "last_name")
     private String lastName;
 
-    @NotNull(message = "Campo password não pode ser nulo")
-    @NotEmpty(message = "Campo password não pode ser vazio")
+    @Column(name = "sex")
     private String sex;
 
     @Column(name = "birth_date")
@@ -42,26 +38,21 @@ public class User {
     private Integer age;
 
     @Column(name = "length")
-    private Integer length;
+    private double length;
 
-    @Column(name = "heigth")
-    private Double heigth;
+    @Column(name = "weight")
+    private double weight;
 
-    @NotNull(message = "Campo legal_document não pode ser nulo")
-    @NotEmpty(message = "Campo legal_document não pode ser vazio")
+    @Column(name = "legal_document")
     private String legalDocument;
 
-    @NotNull(message = "Campo legal_document não pode ser nulo")
-    @NotEmpty(message = "Campo legal_document não pode ser vazio")
-    private Double imc;
+    @Column(name = "imc")
+    private double imc;
 
-
-    @NotNull(message = "Campo email não pode ser nulo")
-    @NotEmpty(message = "Campo email não pode ser vazio")
+    @Column(name = "email")
     private String email;
 
-    @NotNull(message = "Campo password não pode ser nulo")
-    @NotEmpty(message = "Campo password não pode ser vazio")
+    @Column(name = "password")
     private String password;
 
     @OneToOne
@@ -85,6 +76,7 @@ public class User {
 
     @Column(name = "created_at")
     private Date createdAt;
+
     @Column(name = "deleted_at")
     private Date deletedAt;
 
@@ -104,10 +96,10 @@ public class User {
                 SexEnum sex,
                 List<Role> roles,
                 Integer age,
-                Integer length,
-                Double heigth,
+                double length,
+                double weight,
                 String lastName,
-                Double imc,
+                double imc,
                 Date modifiedAt,
                 Date createdAt,
                 Date deletedAt
@@ -125,7 +117,7 @@ public class User {
         this.roles = roles;
         this.age=age;
         this.length=length;
-        this.heigth=heigth;
+        this.weight =weight;
         this.lastName=lastName;
         this.imc=imc;
         this.modifiedAt=modifiedAt;
@@ -148,10 +140,10 @@ public class User {
                 Date deletedAt,
                 Date modifiedAt,
                 Integer age,
-                Integer length,
-                Double heigth,
+                double length,
+                double weight,
                 String lastName,
-                Double imc
+                double imc
     ) {
         this.idUser = idUser;
         this.name = name;
@@ -166,21 +158,19 @@ public class User {
         this.roles = roles;
         this.age=age;
         this.length=length;
-        this.heigth=heigth;
+        this.weight = weight;
         this.lastName=lastName;
-        this.imc=imc;
+        this.imc= imc;
         this.modifiedAt=modifiedAt;
         this.createdAt=createdAt;
         this.deletedAt = deletedAt;
     }
-
-
     public User(Long idUser,String name, String email, String password, String sex, String legal_document, Address address,
                 List<Role> roles, Date birthDate, String phone1, String phone2, Integer age,
-                Integer length,
-                Double heigth,
+                double length,
+                double weight,
                 String lastName,
-                Double imc,
+                double imc,
                 Date modifiedAt,
                 Date createdAt,
                 Date deletedAt) {
@@ -198,13 +188,15 @@ public class User {
         this.phone2 = phone2;
         this.age=age;
         this.length=length;
-        this.heigth=heigth;
+        this.weight = weight;
         this.lastName=lastName;
-        this.imc=imc;
-        this.modifiedAt=modifiedAt;
+        this.imc= imc;
+        this.modifiedAt= modifiedAt;
         this.createdAt=createdAt;
         this.deletedAt = deletedAt;
     }
+
+
 
     public static User fromUserResponse(UserDto user){
         return null;

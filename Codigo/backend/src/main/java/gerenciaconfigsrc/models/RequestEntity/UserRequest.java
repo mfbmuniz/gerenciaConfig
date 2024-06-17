@@ -64,7 +64,7 @@ public class UserRequest {
 
     @NotNull(message = "Campo phone2 não pode ser nulo")
     @NotEmpty(message = "Campo phone2 não pode ser vazio")
-    private String heigth;
+    private String weigth;
 
     @NotNull(message = "Campo phone2 não pode ser nulo")
     @NotEmpty(message = "Campo phone2 não pode ser vazio")
@@ -82,7 +82,7 @@ public class UserRequest {
 
     public UserRequest(String name, String email, String password, List<String> roles, String legalDocument,
                        AddressDto address, String sex, Date birthDate, String phone1, String phone2,
-                       Long idUser, String age, String length, String heigth, String lastName, String imc) {
+                       Long idUser, String age, String length, String weigth, String lastName, String imc) {
         this.name = name;
         this.email = email;
         this.password = password;
@@ -96,7 +96,7 @@ public class UserRequest {
         this.idUser = idUser;
         this.age=age;
         this.length=length;
-        this.heigth=heigth;
+        this.weigth=weigth;
         this.lastName=lastName;
         this.imc=imc;
 
@@ -104,7 +104,7 @@ public class UserRequest {
 
     public UserRequest(String name, String email, String password, List<String> roles, String legalDocument,
                        AddressDto address, String sex, Date birthDate, String phone1, String phone2,
-                       String age, String length, String heigth, String lastName, String imc) {
+                       String age, String length, String weigth, String lastName, String imc) {
         this.name = name;
         this.email = email;
         this.password = password;
@@ -117,7 +117,7 @@ public class UserRequest {
         this.phone2 = phone2;
         this.age=age;
         this.length=length;
-        this.heigth=heigth;
+        this.weigth=weigth;
         this.lastName=lastName;
         this.imc=imc;
     }
@@ -158,15 +158,13 @@ public class UserRequest {
                     user.getPhone1(),
                     user.getPhone2(),
                     Integer.parseInt(user.getAge()),
-                    Integer.parseInt(user.getLength()),
-                    Double.parseDouble(user.getHeigth()),
+                    Double.parseDouble(user.getLength()),
+                    Double.parseDouble(user.getWeigth()),
                     user.getLastName(),
                     Double.parseDouble(user.getImc()),
                     null,
                     new Date(),
                     null
-
-
                     );
 
         }else {
@@ -185,8 +183,8 @@ public class UserRequest {
                     user.getPhone1(),
                     user.getPhone2(),
                     user.getAge() != null ? Integer.parseInt(user.getAge()) : null,
-                    user.getLength() != null ? Integer.parseInt(user.getLength()) : null,
-                    user.getHeigth() != null ? Double.parseDouble(user.getHeigth()) : null,
+                    user.getLength() != null ? Double.parseDouble(user.getLength()) : null,
+                    user.getWeigth() != null ? Double.parseDouble(user.getWeigth()) : null,
                     user.getLastName(),
                     user.getImc() != null ? Double.parseDouble(user.getImc()) : null,
                     null,
