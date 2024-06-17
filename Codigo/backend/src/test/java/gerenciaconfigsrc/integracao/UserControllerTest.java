@@ -93,7 +93,7 @@ public class UserControllerTest {
 
             Date actualDate = new Date();
 
-            emailTeste = "testeunitario13@hotmail.com";
+            emailTeste = "testeunitario17@hotmail.com";
 
             userToCreate = new UserRequest("testeUnitarioLogin",emailTeste, "12345678", rolesString,"12345678951",
                     addressDto, "M", actualDate, "33853056", "33853056",
@@ -171,7 +171,7 @@ public class UserControllerTest {
                                 .accept(MediaType.APPLICATION_JSON))
                         .andExpect(status().isOk())
                         .andExpect(jsonPath("$.name", equalTo("testeUnitarioLogin")))
-                        .andExpect(jsonPath("$.email", equalTo("testeunitario13@hotmail.com")));
+                        .andExpect(jsonPath("$.email", equalTo("testeunitario17@hotmail.com")));
             }else{
                 Assertions.assertTrue(true);
             }
