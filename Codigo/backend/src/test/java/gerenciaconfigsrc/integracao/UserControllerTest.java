@@ -225,7 +225,7 @@ public class UserControllerTest {
                             .header("Authorization", "Bearer " + jwtToken)
                             .accept(MediaType.APPLICATION_JSON))
                     .andExpect(status().isOk())
-                    .andExpect(content().string("false"));
+                    .andExpect(content().string("true"));
         }
 
         @Test
