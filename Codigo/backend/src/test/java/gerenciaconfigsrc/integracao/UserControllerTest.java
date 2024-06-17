@@ -7,10 +7,13 @@ import gerenciaconfigsrc.models.*;
 import gerenciaconfigsrc.models.RequestEntity.UserRequest;
 import gerenciaconfigsrc.models.dto.AddressDto;
 import gerenciaconfigsrc.repository.UserRepository;
+import gerenciaconfigsrc.service.StateService;
 import gerenciaconfigsrc.service.impl.UserServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -117,6 +120,7 @@ public class UserControllerTest {
         }
 
         @Test
+        @Order(1)
         void testCriaUsuarioTeste() throws Exception {
             //given(userService.getPesoIdeal(anyLong())).willReturn("69.225");
 
