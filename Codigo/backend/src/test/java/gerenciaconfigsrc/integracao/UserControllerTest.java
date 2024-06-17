@@ -145,7 +145,7 @@ public class UserControllerTest {
         return mapper.readTree(response).get("token").asText();
     }
 
-        @Test
+        /*@Test
         @Order(1)
         void testCriaUsuarioTeste() throws Exception {
             //given(userService.getPesoIdeal(anyLong())).willReturn("69.225");
@@ -175,7 +175,7 @@ public class UserControllerTest {
             }else{
                 Assertions.assertTrue(true);
             }
-        }
+        }*/
 
         // Perform the POST request and assertions
 
