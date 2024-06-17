@@ -12,6 +12,7 @@ import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -71,13 +72,13 @@ public class ClinicaJavaApplication {
 				new Date(),
 				"33853056",
 				"33853056",
-				"12345678951",
+				"12345678900",
 				address,
 				SexEnum.MALE,
 				Collections.singletonList(admRole),
 				32,
-					1.70,
-				104.0,
+				1.75,
+				70.0,
 				"adm",
 				25.0,
 				null,

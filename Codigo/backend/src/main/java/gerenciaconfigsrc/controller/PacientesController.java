@@ -154,6 +154,17 @@ public class PacientesController {
         );
     }
 
+    @PreAuthorize("@authorityChecker.isAllowed({'ADMIN','USER','CLIN','DEV'})")
+    @GetMapping(path = "getuserbyemail/email/{email}")
+    @ResponseBody
+    @Operation(description = "Lista usuários por página quantidade")
+    public String getUserByEmail(
+            @PathVariable(value="email")
+            String email)throws NotFoundException{
+
+        return this.userService.verifyUser(email).get().getEmail();
+    }
+
     @PostMapping(path = "/resetPassword")
     @Operation(description = "Reseta senha do usuario")
     public ResponseEntity<String> resetPassword(
